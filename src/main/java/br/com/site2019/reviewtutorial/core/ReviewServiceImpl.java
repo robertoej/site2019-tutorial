@@ -20,6 +20,10 @@ public class ReviewServiceImpl implements ReviewService {
 
     @Override
     public Review createReview(Review newReview) {
+        if (newReview.getScore() < 1 || newReview.getScore() > 5) {
+            throw new IllegalArgumentException();
+        }
+
         newReview.setStatus(Review.ReviewStatus.ACTIVE);
 
         reviewRepository.create(newReview);
