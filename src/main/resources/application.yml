@@ -1,0 +1,16 @@
+redis:
+  hostname: localhost
+  port: 6379
+  jedis:
+    pool:
+      max-total: 16
+      max-idle: 8
+      min-idle: 4
+
+---
+
+spring:
+  profiles: docker
+
+redis:
+  hostname: redis
